@@ -1,0 +1,22 @@
+var express = require('express');
+var router = express.Router();
+var login_user = require('../controllers/login');
+var register_user = require('../controllers/register');
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+// Register Route For Post Method
+router.post('/register', function(req,res){
+  register_user.register(req,res)
+});
+
+// Login Route For Post Method
+router.post('/login', function (req,res) {
+  login_user.login(req,res)
+});
+
+
+module.exports = router;
